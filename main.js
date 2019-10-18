@@ -7,13 +7,13 @@ document.body.addEventListener('mousemove', function (e) {
     const y = e.clientY + 1;
     const width = window.innerWidth;
     const height = window.innerHeight;
-
-    h1.textContent = x + "," + y;
-    document.body.style.backgroundColor = `rgb${red}%, ${green}%,${blue}%`;
-
     const red = x / width * 100; // 100%;
     const blue = y / height * 100; // 100%;
-    const green = 100;
+    const green = ((x / width * 100) + (y / height * 100)) / 2;
+    h1.textContent = x + "," + y;
+    document.body.style.backgroundColor = `rgb(${red}%, ${green}%, ${blue}%)`;
+
+
 
     //h1.textContent = `${e.screenX}, ${e.screenY}`;
     //h1.textContent = `${e.pageX}, ${e.pageY}`;
